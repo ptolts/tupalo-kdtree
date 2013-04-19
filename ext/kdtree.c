@@ -1,6 +1,8 @@
 #include "ruby.h"
 
-#ifndef RUBY_19
+#ifndef RUBY_19 
+  #include "rubyio.h"
+#elif RUBY_20
   #include "rubyio.h"
 #else
   #include "ruby/io.h"
@@ -11,6 +13,8 @@
 #endif
 
 #ifndef RUBY_19
+#define rb_io_stdio_file(fptr) ((fptr)->f)
+#elif RUBY_20
 #define rb_io_stdio_file(fptr) ((fptr)->f)
 #else
 #define rb_io_fread(buf,n,f) fread((buf),1,(n),(f))
