@@ -2,7 +2,7 @@ require 'mkmf'
 
 if RUBY_VERSION =~ /1.9/
   $CPPFLAGS += " -DRUBY_19"
-elsif RUBY_VERSION =~ /2\.0/
+elsif RUBY_VERSION =~ /2\..*/
   $CPPFLAGS += " -DRUBY_19"
 end
 
